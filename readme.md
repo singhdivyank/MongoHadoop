@@ -149,3 +149,5 @@ db.posts.find({}, {"title": 1, _id: 0})
 | updateOne() | db.COLLECTION_NAME.updateOne(SELECTION_CRITERIA, UPDATE_DATA) |
 | updateMany() | db.COLLECTION_NAME.updateMany(SELECTION_CRITERIA, UPDATE_DATA) |
 | sub documents | db.COLLECTION_NAME.update({title: VALUE}, {$set: {....}}) |
+
+**$push** is used to update an element in a list 
