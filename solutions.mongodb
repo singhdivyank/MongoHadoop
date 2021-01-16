@@ -1,0 +1,150 @@
+use Assignment
+
+db.createCollection("movies")
+
+db.movies.insert({
+    title: "Fight Club",
+    writer: "Chuck Palanhniuk",
+    year: 1999,
+    actors: ["Brad Pitt", "Edward Norton"]
+},{
+    title: "Pulp Fiction",
+    writer: "Quentin Tarantino",
+    year: 1994,
+    actors: ["John Travolta", "Uma Thurman"]
+}, {
+    title: "Inglorious Basterds",
+    writer: "Quentin Tarantino",
+    year: 2009,
+    actors: ["Brad Pitt", "Diane Kruger", "Eli Roth"]
+}, {
+    title: "The Hobbit: An Unexpected Journey",
+    writer: "J.R.R. Tolkein",
+    year: 2013,
+    franchise: The Hobbit
+}, {
+    title: "The Hobbit: The Desolution of Smaug",
+    writer: "J.R.R. Tolkein",
+    year: 2013,
+    franchise: The Hobbit
+}, {
+    title: "The Hobbit: The Battle of the Five Armies",
+    writer: "J.R.R. Tolkein",
+    year: 2012,
+    franchise: "The Hobbit"
+})
+
+db.movies.find({}).pretty()
+db.movies.find({
+    writer: "Quentin Tarantino"
+}).pretty()
+db.movies.find({
+    actors: "Brad Pitt"
+}).pretty()
+db.movies.find({
+    franchise: "The Hobbit"
+}).pretty()
+db.movies.find({year: {$gte: 1990}, year: {$lt: 2000}}).pretty()
+db.movies.find({$or:[
+    year: {$lt: 1999}, year: {$gte: 2010}
+]}).pretty()
+
+db.movies.update(
+    {title: "The Hobbit: An Unexpected Journey"}, 
+    {$set: {Synopsis: "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."}}
+)
+db.movies.update(
+    {title: "The Hobbit: The Desolution of Smaug"}, 
+    {$set: {Synopsis: "The dwarves, along with Bilbo Baggings and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Samug. Bilbo Baggins is in possession of a mysterious and magical ring"}}
+)
+db.movies.update(
+    {title: "Pulp Fiction"}, {$push: {actor: ["Samuel L. Jackson"]}}
+)
+
+db.movies.find({
+        $text: {$search: "Bilbo"}
+}).pretty()
+db.movies.find({
+    $text: {$search: "Gandalf"}
+}).pretty()
+db.movies.find({
+    $text: {$search: {Synopsis: "Bilbo", Synopsis: {$ne: "Gandalf"}}}
+}).pretty()
+db.movies.find({
+    $text: {$search: $or:[
+        Synopsis: "dwarves", Synopsis; "hobbit"
+    ]}
+}).pretty()
+db.movies.find({
+    $text: {$search: {Synopsis: "gold", Synopsis: "dragon"}}
+}).pretty()
+
+db.movies.remove({title: "Pee Wee Herman's Big Adventure"})
+db.movies.remove({title: "Avatar"})
+
+db.createCollection("users")
+db.users.insert({
+    _id: 1,
+    username: "GoodGuyGreg",
+    first_name: "Good Guy",
+    last_name: "Greg"
+}, {
+    _id: 2,
+    username: "ScumbagSteve",
+    first_name: "Scumbag",
+    last_name: "Steve"
+})
+
+db.createCollection("posts")
+db.users.insert({
+    username: "GoodGuyGreg",
+    title: "Passes out at party",
+    body: "Wakes up early and cleans house"
+}, {
+    username: "GoodGuyGreg",
+    title: "Steals your identity",
+    body: "Raises your credit score"
+}, {
+    username: "GoodGuyGreg",
+    title: "Reports a bug in your code",
+    body: "Sends you a pull request"
+}, {
+    username: "ScumbagSteve",
+    title: "Borrows something",
+    body: "Sells it"
+}, {
+    username: "ScumbagSteve",
+    title: "Borrows everything",
+    body: "The end"
+}, {
+    username: "ScumbagSteve",
+    title: "Forks your repo on github",
+    body: "Sets to private"
+})
+
+db.createCollection("comments")
+db.users.insert({
+    username: "GoodGuyGreg",
+    comment: "Hope you got a good deal!",
+    post: ObjectId("5ca0b7e96435f98b5901f463")
+}, {
+    username: "GoodGuyGreg",
+    comment: "What's mine is yours!"
+    post; ObjectId("5ca0b9706435f98b5901f46a")
+})
+
+db.users.find({}).pretty()
+db.posts.find({}).pretty()
+db.posts.find({
+    username: "GoodGuyGreg"
+}).pretty()
+db.posts.find({
+    username: "ScumbagSteve"
+}).pretty()
+db.comments.find({}).pretty()
+db.comments.find({
+    username: "GoodGuyGreg"
+}).pretty()
+db.comments.find({
+    username: "ScumbagSteve"
+}).pretty()
