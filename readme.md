@@ -117,6 +117,14 @@ Works on the principle of collections and documents
 | forEach() | return only one document | db.COLLECTION_NAME.find().forEach(function(doc){})|
 | createIndex() | add Index to row | db.COLLECTION_NAME.createIndex({key: VALUE}) |
 
+### Using aggregate()
+
+Consider a few database fields- city, state, total pop, _id
+
+Show name and population of state based on cities- **db.docs.aggregate([{$match: {city: {$exists: true}}}, {$group: {_id: "$state", "Total Pop": {$sum: "$pop"}}}])**
+
+Show total cities in New York as population- **db.docs.aggregate([{$match: {state: "NY"}}, {$group: {_id: "$state", "Total pop:" {$sum: "pop"}}}])**
+
 ### Projections
 
 Selecting only necessary data rather than selected whole data of a document. Syntax- db.COLLECTION_NAME.find({}, {Key: Value})
