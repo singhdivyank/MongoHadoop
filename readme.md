@@ -130,7 +130,9 @@ db.posts.find({}, {"title": 1, _id: 0})
 1. find()
 
     * $elemMatch - to find a row in the document with elements matching the query. Example: db.posts.find({comments:{$elemMatch:{user: 'Divyank Singh'}}})
-    * $text - Performs text search. Example: db.posts.find({$text:{$search: "\"Post 0\"}})
+    * $text - Performs text search. Example: db.posts.find({$text:{$search: "\ "Post 0\ "}})
+        
+        **"\ "Post 0\ "** returns documents having Post0 in a phrase while **"Post 0"** would return documents having Post 0 as a word
     * Clauses
     
     | Clause Name | Syntax |
