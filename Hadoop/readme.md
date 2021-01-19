@@ -1,6 +1,6 @@
 ![](https://miro.medium.com/max/2760/1*kPKoXmHBDmGthbah-0549A.png)
 
-A framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. Designed to detect and handle failures at the application layer, so delivering a highly-available service on top of a cluster of computers, each of which may be prone to failures.
+An Apache open source framework written in Java that allows for the distributed processing of large data sets (big data) across clusters of computers using simple programming models. Designed to detect and handle failures at the application layer, so delivering a highly-available service on top of a cluster of computers, each of which may be prone to failures.
 
 # Installation
 
