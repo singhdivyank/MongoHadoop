@@ -50,7 +50,7 @@ Works on the principle of collections and documents
 * Install-
   * Import MongoDB public key: **sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10**
   * Create a /etc/apt/sources.list.d/mongodb.list file: **echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-uptart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list**
-  * Update the repositry: **sudi apt-get update**
+  * Update the repositry: **sudo apt-get update**
   * Final command to install: **apt-get install mongodb-10gen=2.2.3**
   
 * Start server- sudo service mongodb start
