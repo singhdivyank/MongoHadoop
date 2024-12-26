@@ -1,6 +1,6 @@
 ![](https://miro.medium.com/max/900/1*b0TtGI6gWFLltL1QkRxVdg.png)
 
-A cross-platform document oriented NoSQL database that stores data as JASON documents and provides high performance, high availaility and easy scalability. Used by Github and Cassandra
+A cross-platform document oriented NoSQL database that stores data as JSON documents and provides high performance, high availaility and easy scalability. Used by Github and Cassandra
 
 ## Working concept
 
